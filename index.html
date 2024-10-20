@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dyslexia-Friendly Reading Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Dyslexia-Friendly Reading Assistant</h1>
+    </header>
+
+    <main>
+        <!-- Customizable Text Formatting Section -->
+        <section>
+            <h2>Customizable Text Formatting</h2>
+            <label for="font-size">Font Size:</label>
+            <input type="range" id="font-size" min="12" max="40" value="16" oninput="adjustFontSize()">
+            <p id="text-sample">This is a sample text for font size adjustment.</p>
+            
+            <label for="font-family">Font:</label>
+            <select id="font-family" onchange="adjustFontFamily()">
+                <option value="Arial">Arial</option>
+                <option value="OpenDyslexic">OpenDyslexic</option>
+                <option value="Lexend">Lexend</option>
+            </select>
+
+            <label for="line-spacing">Line Spacing:</label>
+            <input type="range" id="line-spacing" min="1" max="3" step="0.1" value="1.5" oninput="adjustLineSpacing()">
+
+            <label for="bg-color">Background Color:</label>
+            <input type="color" id="bg-color" value="#ffffff" onchange="adjustBgColor()">
+        </section>
+
+        <!-- Text-to-Speech Section -->
+        <section>
+            <h2>Text-to-Speech</h2>
+            <textarea id="tts-text" placeholder="Type text here..."></textarea>
+            <button onclick="startTTS()">Read Aloud</button>
+            <label for="speech-rate">Speech Rate:</label>
+            <input type="range" id="speech-rate" min="0.5" max="2" value="1" step="0.1" oninput="updateSpeechRate()">
+        </section>
+
+        <!-- Speech-to-Text Section -->
+        <section>
+            <h2>Speech-to-Text</h2>
+            <button onclick="startSTT()">Start Dictation</button>
+            <p id="stt-result">Your dictated text will appear here...</p>
+        </section>
+
+        <!-- Word Highlighting Section -->
+        <section>
+            <h2>Interactive Word Highlighting</h2>
+            <p id="highlight-text">Tap on difficult words to highlight and hear them pronounced.</p>
+            <button onclick="highlightAndRead()">Highlight & Read</button>
+        </section>
+
+        <!-- Dictionary and Visual Definitions -->
+        <section>
+            <h2>Dictionary Lookup</h2>
+            <input type="text" id="dictionary-input" placeholder="Enter a word">
+            <button onclick="showDefinition()">Get Definition</button>
+            <p id="definition-result"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Dyslexia-Friendly Reading Assistant. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
